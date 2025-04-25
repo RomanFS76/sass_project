@@ -2,8 +2,10 @@
   $btn-layer-spacing: 4px
 );
 
-// .welcome {
-// }
+.welcome {
+  grid-area: welcome;
+}
+
 // .page-title {
 // }
 // .page-title-accent {
