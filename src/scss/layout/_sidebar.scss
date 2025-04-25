@@ -1,0 +1,60 @@
+@use '../utils/placeholders';
+@use '../utils/variables' as var;
+@use '../utils/function' as fn;
+@use '../utils/mixins' as mx;
+
+.sidebar {
+  @include mx.mq('lg') {
+    grid-area: side-bar;
+  }
+
+  @include mx.mq('lg', 'max') {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(fn.get-color('dark-primary'), $alpha: 0.5);
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+
+    &.is-open {
+      opacity: 1;
+      pointer-events: initial;
+      visibility: visible;
+    }
+  }
+}
+
+// .js-menu {
+// }
+// .menu {
+// }
+// .menu-btn {
+// }
+// .js-menu-close {
+// }
+// .menu-btn-icon {
+// }
+// .logo {
+// }
+// .logo-icon {
+// }
+// .menu-list {
+// }
+// .menu-item {
+// }
+// .menu-link {
+// }
+// .current {
+// }
+// .menu-icon {
+// }
+// .menu-notification {
+// }
+// .notification {
+// }
