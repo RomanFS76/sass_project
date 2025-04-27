@@ -1,0 +1,78 @@
+@use '../utils/placeholders';
+@use '../utils/variables' as var;
+@use '../utils/function' as fn;
+@use '../utils/mixins' as mx;
+
+.search-field {
+  @include mx.ease('fast', width, color);
+
+  display: inline-flex;
+  align-items: center;
+
+  color: fn.get-color('light-tertiary');
+  overflow: hidden;
+
+  &:focus-within {
+    color: fn.get-color('light-tertiary');
+  }
+
+  @include mx.mq('lg', 'max') {
+    width: 30px;
+
+    &:focus-within {
+      width: 200px;
+
+      .search-icon {
+        fill: fn.get-color('light');
+      }
+    }
+  }
+
+  @include mx.mq('lg') {
+    margin-right: auto;
+
+    &:focus-within {
+      .search-icon,
+      .search-input {
+        fill: fn.get-color('light');
+        color: fn.get-color('light');
+      }
+    }
+  }
+}
+.search-icon {
+  flex-shrink: 0;
+  fill: fn.get-color('current');
+
+  margin-right: 12px;
+
+  &:focus {
+    opacity: 1;
+    transition-delay: 400ms;
+
+    fill: fn.get-color('light');
+  }
+}
+
+.search-input {
+  @extend %details;
+
+  min-width: 165px;
+  min-height: 20px;
+
+  @include mx.mq('lg', 'max') {
+    @include mx.ease('fast', opacity);
+
+    opacity: 0;
+
+    &:focus {
+      opacity: 1;
+      transition-delay: 400ms;
+      color: fn.get-color('light');
+    }
+  }
+}
+
+// .search-icon {
+
+//   }
